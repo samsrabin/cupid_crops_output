@@ -334,8 +334,7 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings">1. Settings</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-modifiable-in-config-yml">1.1 Parameters modifiable in config.yml</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-coded-settings">1.2 Hard-coded settings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-settings">1.3 Process settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-settings">1.2 Other settings</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-case-data">2. Import case data</a><ul class="nav section-nav flex-column">
@@ -343,8 +342,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-cases">2.2 Import cases</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-plots">3. Time series plots</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maps">4. Maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-time-series">3. Yield time series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-maps">4. Yield maps</a></li>
 </ul>
             </nav>
         </div>
@@ -389,14 +388,8 @@
 <span class="p">)</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ctsm_python_gallery_path</span><span class="p">)</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">utils</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start a local Dask cluster using all available cores</span>
+
+<span class="c1"># Start a local Dask cluster using all available cores</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
 <span class="n">client</span>
 </pre></div>
@@ -407,7 +400,7 @@
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-8dbae009-f0aa-11ef-8593-ac1f6bca6f4c</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-3298b818-f0ad-11ef-8eac-ac1f6bca6f4c</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -438,7 +431,7 @@
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">acfb8045</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">e53908cd</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -475,11 +468,11 @@
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-ace4de14-7fad-4489-9ed5-d847cf9d87bb</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-c8470d12-57ec-4c8f-ab03-81c089fee3f2</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:42243
+                        <strong>Comm:</strong> tcp://127.0.0.1:39097
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 4
@@ -521,7 +514,7 @@
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:37985
+                            <strong>Comm: </strong> tcp://127.0.0.1:41695
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 2
@@ -529,7 +522,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/45693/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/45693/status</a>
+                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/36551/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/36551/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 32.00 GiB
@@ -537,13 +530,13 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:40699
+                            <strong>Nanny: </strong> tcp://127.0.0.1:34293
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/derecho/scratch/samrabin/tmp/dask-scratch-space/worker-lk5n0bt7
+                            <strong>Local directory: </strong> /glade/derecho/scratch/samrabin/tmp/dask-scratch-space/worker-o4veef_c
                         </td>
                     </tr>
 
@@ -566,7 +559,7 @@
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:41855
+                            <strong>Comm: </strong> tcp://127.0.0.1:44719
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 2
@@ -574,7 +567,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/42313/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/42313/status</a>
+                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/34337/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/34337/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 32.00 GiB
@@ -582,13 +575,13 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:45393
+                            <strong>Nanny: </strong> tcp://127.0.0.1:39545
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/derecho/scratch/samrabin/tmp/dask-scratch-space/worker-ec49_45m
+                            <strong>Local directory: </strong> /glade/derecho/scratch/samrabin/tmp/dask-scratch-space/worker-1ohr3frg
                         </td>
                     </tr>
 
@@ -611,7 +604,7 @@
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:37411
+                            <strong>Comm: </strong> tcp://127.0.0.1:44711
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 2
@@ -619,7 +612,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/35559/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/35559/status</a>
+                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/42929/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/42929/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 32.00 GiB
@@ -627,13 +620,13 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:33799
+                            <strong>Nanny: </strong> tcp://127.0.0.1:44087
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/derecho/scratch/samrabin/tmp/dask-scratch-space/worker-e1hcpf3e
+                            <strong>Local directory: </strong> /glade/derecho/scratch/samrabin/tmp/dask-scratch-space/worker-1wef4bts
                         </td>
                     </tr>
 
@@ -656,7 +649,7 @@
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:37557
+                            <strong>Comm: </strong> tcp://127.0.0.1:41005
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 2
@@ -664,7 +657,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/44351/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/44351/status</a>
+                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/44617/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/44617/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 32.00 GiB
@@ -672,13 +665,13 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:34099
+                            <strong>Nanny: </strong> tcp://127.0.0.1:46259
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/derecho/scratch/samrabin/tmp/dask-scratch-space/worker-du_di4p3
+                            <strong>Local directory: </strong> /glade/derecho/scratch/samrabin/tmp/dask-scratch-space/worker-2d1jk3aa
                         </td>
                     </tr>
 
@@ -703,6 +696,7 @@
 
     </div>
 </div></div></div>
+</details>
 </div>
 <section id="settings">
 <h2>1. Settings<a class="headerlink" href="#settings" title="Link to this heading">#</a></h2>
@@ -792,8 +786,8 @@
 </div>
 </div>
 </section>
-<section id="hard-coded-settings">
-<h3>1.2 Hard-coded settings<a class="headerlink" href="#hard-coded-settings" title="Link to this heading">#</a></h3>
+<section id="other-settings">
+<h3>1.2 Other settings<a class="headerlink" href="#other-settings" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -809,17 +803,8 @@
     <span class="n">cupid_temp</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
 
 <span class="n">N_PFTS</span> <span class="o">=</span> <span class="mi">78</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-</section>
-<section id="process-settings">
-<h3>1.3 Process settings<a class="headerlink" href="#process-settings" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">case_name_list</span> <span class="ow">and</span> <span class="n">case_name</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">case_name_list</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">case_name</span><span class="p">):</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">case_name_list</span> <span class="ow">and</span> <span class="n">case_name</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">case_name_list</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">case_name</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Specify one of caseNames or case_name&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">case_name_list</span><span class="p">:</span>
     <span class="n">case_name_list</span> <span class="o">=</span> <span class="p">[</span>
@@ -830,6 +815,7 @@
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 </section>
@@ -837,7 +823,12 @@
 <h2>2. Import case data<a class="headerlink" href="#import-case-data" title="Link to this heading">#</a></h2>
 <section id="set-up-classes-etc">
 <h3>2.1 Set up classes etc.<a class="headerlink" href="#set-up-classes-etc" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Cft</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cft_num</span><span class="p">):</span>
@@ -1073,6 +1064,7 @@
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="import-cases">
@@ -1111,9 +1103,14 @@
 </div>
 </section>
 </section>
-<section id="time-series-plots">
-<h2>3. Time series plots<a class="headerlink" href="#time-series-plots" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
+<section id="yield-time-series">
+<h2>3. Yield time series<a class="headerlink" href="#yield-time-series" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
@@ -1163,14 +1160,20 @@
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/648dcd0af05f30eedab6440e1dfc23b1791c74b9c7a28c8c26d7713665a274c1.png" src="../_images/648dcd0af05f30eedab6440e1dfc23b1791c74b9c7a28c8c26d7713665a274c1.png" />
 </div>
 </div>
 </section>
-<section id="maps">
-<h2>4. Maps<a class="headerlink" href="#maps" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
+<section id="yield-maps">
+<h2>4. Yield maps<a class="headerlink" href="#yield-maps" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">utils</span><span class="p">)</span>
 
@@ -1249,6 +1252,7 @@
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/d637e5cda502200ed54f2a705ec0c2b69917e87a2663edd75cf2ba20f66e24c0.png" src="../_images/d637e5cda502200ed54f2a705ec0c2b69917e87a2663edd75cf2ba20f66e24c0.png" />
 </div>
@@ -1314,8 +1318,7 @@
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings">1. Settings</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-modifiable-in-config-yml">1.1 Parameters modifiable in config.yml</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-coded-settings">1.2 Hard-coded settings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-settings">1.3 Process settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-settings">1.2 Other settings</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-case-data">2. Import case data</a><ul class="nav section-nav flex-column">
@@ -1323,8 +1326,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-cases">2.2 Import cases</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-plots">3. Time series plots</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maps">4. Maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-time-series">3. Yield time series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-maps">4. Yield maps</a></li>
 </ul>
   </nav></div>
 
