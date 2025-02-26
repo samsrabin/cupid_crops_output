@@ -31,6 +31,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Download git lfs objects
+        run: |
+          git lfs fetch --all
+          git lfs pull
+          git lfs checkout
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
