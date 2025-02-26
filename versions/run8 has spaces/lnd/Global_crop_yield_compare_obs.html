@@ -1,0 +1,1385 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Compare crop yields to observations &#8212; CESM Key Metrics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lnd/Global_crop_yield_compare_obs';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Index homepage!" href="../infrastructure/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../infrastructure/index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CESM Key Metrics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Land</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Compare crop yields to observations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub.hpc.ucar.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/executablebooks/jupyter-book&urlpath=lab/tree/jupyter-book/lnd/Global_crop_yield_compare_obs.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lnd/Global_crop_yield_compare_obs.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Compare crop yields to observations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings">1. Settings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-modifiable-in-config-yml">1.1 Parameters modifiable in config.yml</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-settings">1.2 Other settings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-case-data">2. Import case data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-classes-etc">2.1 Set up classes etc.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-cases">2.2 Import cases</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-time-series">3. Yield time series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-maps">4. Yield maps</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="compare-crop-yields-to-observations">
+<h1>Compare crop yields to observations<a class="headerlink" href="#compare-crop-yields-to-observations" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Uses raw annual CTSM outputs (NOT timeseries files).</p></li>
+</ul>
+<p>Notebook created by Sam Rabin (<a class="reference external" href="mailto:samrabin&#37;&#52;&#48;ucar&#46;edu">samrabin<span>&#64;</span>ucar<span>&#46;</span>edu</a>).</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dask.distributed</span><span class="w"> </span><span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">wait</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">convert_pft1d_to_sparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+
+<span class="c1"># Plotting utils</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cartopy.crs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ccrs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cartopy.feature</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cfeature</span>
+
+<span class="n">ctsm_python_gallery_path</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;/glade/work/samrabin/cupid_crops/externals/ctsm_python_gallery/ctsm_py&quot;</span>
+<span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ctsm_python_gallery_path</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utils</span>
+
+<span class="c1"># Start a local Dask cluster using all available cores</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+<span class="n">client</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+    <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
+    <div style="margin-left: 48px;">
+        <h3 style="margin-bottom: 0px;">Client</h3>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-3298b818-f0ad-11ef-8eac-ac1f6bca6f4c</p>
+        <table style="width: 100%; text-align: left;">
+
+        <tr>
+        
+            <td style="text-align: left;"><strong>Connection method:</strong> Cluster object</td>
+            <td style="text-align: left;"><strong>Cluster type:</strong> distributed.LocalCluster</td>
+        
+        </tr>
+
+        
+            <tr>
+                <td style="text-align: left;">
+                    <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/8787/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/8787/status</a>
+                </td>
+                <td style="text-align: left;"></td>
+            </tr>
+        
+
+        </table>
+
+        
+
+        
+            <details>
+            <summary style="margin-bottom: 20px;"><h3 style="display: inline;">Cluster Info</h3></summary>
+            <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-mod-trusted jp-OutputArea-output">
+    <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;">
+    </div>
+    <div style="margin-left: 48px;">
+        <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">e53908cd</p>
+        <table style="width: 100%; text-align: left;">
+            <tr>
+                <td style="text-align: left;">
+                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/8787/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/8787/status</a>
+                </td>
+                <td style="text-align: left;">
+                    <strong>Workers:</strong> 4
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">
+                    <strong>Total threads:</strong> 8
+                </td>
+                <td style="text-align: left;">
+                    <strong>Total memory:</strong> 128.00 GiB
+                </td>
+            </tr>
+            
+            <tr>
+    <td style="text-align: left;"><strong>Status:</strong> running</td>
+    <td style="text-align: left;"><strong>Using processes:</strong> True</td>
+</tr>
+
+            
+        </table>
+
+        <details>
+            <summary style="margin-bottom: 20px;">
+                <h3 style="display: inline;">Scheduler Info</h3>
+            </summary>
+
+            <div style="">
+    <div>
+        <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
+        <div style="margin-left: 48px;">
+            <h3 style="margin-bottom: 0px;">Scheduler</h3>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-c8470d12-57ec-4c8f-ab03-81c089fee3f2</p>
+            <table style="width: 100%; text-align: left;">
+                <tr>
+                    <td style="text-align: left;">
+                        <strong>Comm:</strong> tcp://127.0.0.1:39097
+                    </td>
+                    <td style="text-align: left;">
+                        <strong>Workers:</strong> 4
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">
+                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/8787/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/8787/status</a>
+                    </td>
+                    <td style="text-align: left;">
+                        <strong>Total threads:</strong> 8
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">
+                        <strong>Started:</strong> Just now
+                    </td>
+                    <td style="text-align: left;">
+                        <strong>Total memory:</strong> 128.00 GiB
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <details style="margin-left: 48px;">
+        <summary style="margin-bottom: 20px;">
+            <h3 style="display: inline;">Workers</h3>
+        </summary>
+
+        
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 0</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:41695
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/36551/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/36551/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 32.00 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:34293
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /glade/derecho/scratch/samrabin/tmp/dask-scratch-space/worker-o4veef_c
+                        </td>
+                    </tr>
+
+                    
+
+                    
+
+                </table>
+            </details>
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 1</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:44719
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/34337/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/34337/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 32.00 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:39545
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /glade/derecho/scratch/samrabin/tmp/dask-scratch-space/worker-1ohr3frg
+                        </td>
+                    </tr>
+
+                    
+
+                    
+
+                </table>
+            </details>
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 2</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:44711
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/42929/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/42929/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 32.00 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:44087
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /glade/derecho/scratch/samrabin/tmp/dask-scratch-space/worker-1wef4bts
+                        </td>
+                    </tr>
+
+                    
+
+                    
+
+                </table>
+            </details>
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 3</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:41005
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/44617/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/samrabin/proxy/44617/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 32.00 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:46259
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /glade/derecho/scratch/samrabin/tmp/dask-scratch-space/worker-2d1jk3aa
+                        </td>
+                    </tr>
+
+                    
+
+                    
+
+                </table>
+            </details>
+            </div>
+        </div>
+        
+
+    </details>
+</div>
+
+        </details>
+    </div>
+</div>
+            </details>
+        
+
+    </div>
+</div></div></div>
+</details>
+</div>
+<section id="settings">
+<h2>1. Settings<a class="headerlink" href="#settings" title="Link to this heading">#</a></h2>
+<section id="parameters-modifiable-in-config-yml">
+<h3>1.1 Parameters modifiable in config.yml<a class="headerlink" href="#parameters-modifiable-in-config-yml" title="Link to this heading">#</a></h3>
+<div class="cell tag_parameters tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Where land output is stored</span>
+<span class="n">CESM_output_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span>
+    <span class="s2">&quot;glade&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;work&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;samrabin&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Full casenames that are present in CESM_output_dir and in individual filenames</span>
+<span class="c1"># caseNames = [</span>
+<span class="c1">#             &#39;b.e23_alpha16b.BLT1850.ne30_t232.054&#39;,</span>
+<span class="c1"># &#39;b.e30_beta02.BLT1850.ne30_t232.104&#39;,</span>
+<span class="c1">#             ]</span>
+<span class="n">case_name_list</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">case_name</span> <span class="o">=</span> <span class="s2">&quot;ctsm53019_f09_BNF_hist&quot;</span>
+
+<span class="n">clm_file_h</span> <span class="o">=</span> <span class="s2">&quot;.h5.&quot;</span>
+
+<span class="n">cfts_to_include</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;temperate_corn&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tropical_corn&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cotton&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rice&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperate_soybean&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tropical_soybean&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sugarcane&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;spring_wheat&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;irrigated_temperate_corn&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;irrigated_tropical_corn&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;irrigated_cotton&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;irrigated_rice&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;irrigated_temperate_soybean&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;irrigated_tropical_soybean&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;irrigated_sugarcane&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;irrigated_spring_wheat&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">crops_to_include</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;corn&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cotton&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rice&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;soybean&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sugarcane&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;wheat&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">dev_mode</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_injected-parameters docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters</span>
+<span class="n">case_name</span> <span class="o">=</span> <span class="s2">&quot;ctsm53019_f09_BNF_hist&quot;</span>
+<span class="n">base_case_name</span> <span class="o">=</span> <span class="s2">&quot;b.e23_alpha17f.BLT1850.ne30_t232.092&quot;</span>
+<span class="n">CESM_output_dir</span> <span class="o">=</span> <span class="s2">&quot;/glade/work/samrabin&quot;</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;0001-01-01&quot;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="s2">&quot;0101-01-01&quot;</span>
+<span class="n">base_start_date</span> <span class="o">=</span> <span class="s2">&quot;0001-01-01&quot;</span>
+<span class="n">base_end_date</span> <span class="o">=</span> <span class="s2">&quot;0101-01-01&quot;</span>
+<span class="n">lc_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;threads_per_worker&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">serial</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">clmFile_h</span> <span class="o">=</span> <span class="s2">&quot;.h5.&quot;</span>
+<span class="n">fluxnet_comparison</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">obsDir</span> <span class="o">=</span> <span class="s2">&quot;/glade/campaign/cesm/development/cross-wg/diagnostic_framework/CUPiD_obs_data/lnd/analysis_datasets/ungridded/timeseries/FLUXNET2015/&quot;</span>
+<span class="n">dev_mode</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">subset_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">product</span> <span class="o">=</span> <span class="s2">&quot;/glade/work/samrabin/cupid_crops/examples/crops/computed_notebooks//lnd/Global_crop_yield_compare_obs.ipynb&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="other-settings">
+<h3>1.2 Other settings<a class="headerlink" href="#other-settings" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up directory for any scratch output</span>
+<span class="k">if</span> <span class="s2">&quot;SCRATCH&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+    <span class="n">cupid_temp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;SCRATCH&quot;</span><span class="p">],</span> <span class="s2">&quot;CUPiD_scratch&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">cupid_temp</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">cupid_temp</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+
+<span class="n">N_PFTS</span> <span class="o">=</span> <span class="mi">78</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">case_name_list</span> <span class="ow">and</span> <span class="n">case_name</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">case_name_list</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">case_name</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Specify one of caseNames or case_name&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">case_name_list</span><span class="p">:</span>
+    <span class="n">case_name_list</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">case_name</span><span class="p">,</span>
+    <span class="p">]</span>
+
+<span class="n">short_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">case</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">case_name_list</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="import-case-data">
+<h2>2. Import case data<a class="headerlink" href="#import-case-data" title="Link to this heading">#</a></h2>
+<section id="set-up-classes-etc">
+<h3>2.1 Set up classes etc.<a class="headerlink" href="#set-up-classes-etc" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Cft</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cft_num</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="c1"># 1-indexed in the FORTRAN style</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cft_num</span> <span class="o">=</span> <span class="n">cft_num</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pft_num</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Need to know max cft_num</span>
+
+        <span class="c1"># 0-indexed in the Python style</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pft_ind</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Need to know pft_num</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">where</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;   cft_num: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cft_num</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;   pft_num: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pft_num</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;   pft_ind: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pft_ind</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;   N cells: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">where</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_pft</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_non_crop_pfts</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        You don&#39;t know n_non_crop_pfts until after reading in all CFTs, so</span>
+<span class="sd">        this function gets called once that&#39;s done in CftList.__init__().</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pft_num</span> <span class="o">=</span> <span class="n">n_non_crop_pfts</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cft_num</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pft_ind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pft_num</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_where</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ds</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the indices on the pft dimension corresponding to this CFT</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pft_num</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s2">&quot;get_where() can&#39;t be run until after calling Crop.update_pft()&quot;</span>
+            <span class="p">)</span>
+        <span class="n">pfts1d_itype_veg</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;pfts1d_itype_veg&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;time&quot;</span> <span class="ow">in</span> <span class="n">pfts1d_itype_veg</span><span class="o">.</span><span class="n">dims</span><span class="p">:</span>
+            <span class="n">pfts1d_itype_veg</span> <span class="o">=</span> <span class="n">pfts1d_itype_veg</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">where</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">pfts1d_itype_veg</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">pft_num</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">where</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CftList</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">n_pfts</span><span class="p">,</span> <span class="n">cfts_to_include</span><span class="p">):</span>
+        <span class="c1"># Get list of all possible CFTs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;cft_&quot;</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="n">cft_name</span> <span class="o">=</span> <span class="n">key</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Cft</span><span class="p">(</span><span class="n">cft_name</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+
+        <span class="c1"># Ensure that all CFTs in cfts_to_include are present</span>
+        <span class="n">cfts_in_file</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span><span class="p">]</span>
+        <span class="n">missing_cfts</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cfts_to_include</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cfts_in_file</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">missing_cfts</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;The following are in cfts_to_include but not the dataset: &quot;</span>
+                <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing_cfts</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="c1"># Figure out PFT indices</span>
+        <span class="n">max_cft_num</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">cft_num</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span><span class="p">])</span>
+        <span class="n">n_non_crop_pfts</span> <span class="o">=</span> <span class="n">n_pfts</span> <span class="o">-</span> <span class="n">max_cft_num</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Incl. unvegetated</span>
+        <span class="k">for</span> <span class="n">cft</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span><span class="p">:</span>
+            <span class="n">cft</span> <span class="o">=</span> <span class="n">cft</span><span class="o">.</span><span class="n">update_pft</span><span class="p">(</span><span class="n">n_non_crop_pfts</span><span class="p">)</span>
+
+        <span class="c1"># Only include CFTs we care about</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cfts_to_include</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">cfts_to_include</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Duplicate CFT(s) in cfts_to_include&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">cfts_to_include</span><span class="p">]</span>
+
+        <span class="c1"># Figure out where the pft index is each CFT</span>
+        <span class="k">for</span> <span class="n">cft</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span><span class="p">:</span>
+            <span class="n">cft</span><span class="o">.</span><span class="n">get_where</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cft</span><span class="o">.</span><span class="n">where</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: No occurrences found of &quot;</span> <span class="o">+</span> <span class="n">cft</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">cft</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span><span class="p">:</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cft</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_cft_ds</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">cft</span><span class="p">):</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">pft</span><span class="o">=</span><span class="n">cft</span><span class="o">.</span><span class="n">where</span><span class="p">)</span>
+    <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;cft&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cft</span><span class="o">.</span><span class="n">pft_num</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">set_coords</span><span class="p">(</span><span class="s2">&quot;cft&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">ds</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;pft&quot;</span> <span class="ow">in</span> <span class="n">ds</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dims</span><span class="p">:</span>
+            <span class="n">ds</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">cft</span><span class="o">=</span><span class="n">cft</span><span class="o">.</span><span class="n">pft_num</span><span class="p">)</span>
+            <span class="n">ds</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="s2">&quot;cft&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Crop</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cft_list</span><span class="p">,</span> <span class="n">ds</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="c1"># Get CFTs included in this crop</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">cft</span> <span class="ow">in</span> <span class="n">cft_list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cft</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cft</span><span class="p">)</span>
+
+        <span class="c1"># Get information for all CFTs in this crop</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cft_names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pft_nums</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pft_inds</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">where</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">cft</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cft_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cft</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pft_nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cft</span><span class="o">.</span><span class="n">pft_num</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pft_inds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cft</span><span class="o">.</span><span class="n">pft_ind</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">where</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">where</span><span class="p">,</span> <span class="n">cft</span><span class="o">.</span><span class="n">get_where</span><span class="p">(</span><span class="n">ds</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">where</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">where</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">pft_num</span><span class="si">}</span><span class="s1">)&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CropList</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">crops_to_include</span><span class="p">,</span> <span class="n">cft_list</span><span class="p">,</span> <span class="n">ds</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">crops_to_include</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">crops_to_include</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Duplicate crop(s) found in crops_to_include&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">crop_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">Crop</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cft_list</span><span class="p">,</span> <span class="n">ds</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">crops_to_include</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">crop</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">crop_list</span><span class="p">):</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="n">crop</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">index</span>
+                <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+                    <span class="k">break</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No crop found matching &#39;</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">crop_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">crop_list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">crop</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">crop_list</span><span class="p">:</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">crop</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mf_preproc</span><span class="p">(</span><span class="n">ds</span><span class="p">):</span>
+    <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;pfts1d_wtgcell&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;pfts1d_wtgcell&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span>
+        <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span>
+    <span class="p">)</span>  <span class="c1"># .assign_coords({&quot;time&quot;: ds[&quot;time&quot;]})</span>
+    <span class="k">return</span> <span class="n">ds</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Case</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">CESM_output_dir</span><span class="p">,</span> <span class="n">clm_file_h</span><span class="p">,</span> <span class="n">cfts_to_include</span><span class="p">,</span> <span class="n">crops_to_include</span>
+    <span class="p">):</span>
+        <span class="c1"># Get list of necessary time series files</span>
+        <span class="n">file_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">CESM_output_dir</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">,</span>
+            <span class="s2">&quot;lnd&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;hist&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">file_pattern</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dir</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.clm2&quot;</span> <span class="o">+</span> <span class="n">clm_file_h</span> <span class="o">+</span> <span class="s2">&quot;*.nc&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">file_pattern</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;No files found matching pattern: &quot;</span> <span class="o">+</span> <span class="n">file_pattern</span><span class="p">)</span>
+
+        <span class="c1"># Read files</span>
+        <span class="c1"># Adding join=&quot;override&quot;, compat=&quot;override&quot;, coords=&quot;minimal&quot;, doesn&#39;t fix the graph size</span>
+        <span class="c1"># Adding combine=&quot;nested&quot;, concat_dim=&quot;time&quot; doesn&#39;t give time axis to only variables we want</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="p">,</span>
+            <span class="n">decode_times</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">chunks</span><span class="o">=</span><span class="p">{},</span>
+            <span class="n">join</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span>
+            <span class="n">compat</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span>
+            <span class="n">coords</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>
+            <span class="c1"># combine=&quot;nested&quot;, concat_dim=&quot;time&quot;,</span>
+            <span class="n">data_vars</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>
+            <span class="n">preprocess</span><span class="o">=</span><span class="n">mf_preproc</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Get CFT info</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span> <span class="o">=</span> <span class="n">CftList</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">N_PFTS</span><span class="p">,</span> <span class="n">cfts_to_include</span><span class="p">)</span>
+
+        <span class="c1"># Get crop list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">crop_list</span> <span class="o">=</span> <span class="n">CropList</span><span class="p">(</span><span class="n">crops_to_include</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span><span class="p">,</span> <span class="n">ds</span><span class="p">)</span>
+
+        <span class="c1"># Save CFT dataset</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cft</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cft_list</span><span class="p">):</span>
+            <span class="n">this_cft_ds</span> <span class="o">=</span> <span class="n">get_cft_ds</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">cft</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cft_ds</span> <span class="o">=</span> <span class="n">this_cft_ds</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                <span class="n">n_expected</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cft_ds</span><span class="o">.</span><span class="n">sizes</span><span class="p">[</span><span class="s2">&quot;pft&quot;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Check # of gridcells with this PFT</span>
+                <span class="n">n_this</span> <span class="o">=</span> <span class="n">this_cft_ds</span><span class="o">.</span><span class="n">sizes</span><span class="p">[</span><span class="s2">&quot;pft&quot;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">n_this</span> <span class="o">!=</span> <span class="n">n_expected</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Expected </span><span class="si">{</span><span class="n">n_expected</span><span class="si">}</span><span class="s2"> gridcells with </span><span class="si">{</span><span class="n">cft</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">; found </span><span class="si">{</span><span class="n">n_this</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cft_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+                    <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cft_ds</span><span class="p">,</span> <span class="n">this_cft_ds</span><span class="p">],</span>
+                    <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;cft&quot;</span><span class="p">,</span>
+                    <span class="n">data_vars</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>
+                    <span class="n">compat</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span>
+                    <span class="n">join</span><span class="o">=</span><span class="s2">&quot;override&quot;</span><span class="p">,</span>
+                    <span class="n">coords</span><span class="o">=</span><span class="s2">&quot;minimal&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+
+        <span class="c1"># Load</span>
+        <span class="k">if</span> <span class="n">dev_mode</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading...&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cft_ds</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading took </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="import-cases">
+<h3>2.2 Import cases<a class="headerlink" href="#import-cases" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+<span class="n">case_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">case</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">case_name_list</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Importing </span><span class="si">{</span><span class="n">case</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+    <span class="n">case_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">Case</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="n">CESM_output_dir</span><span class="p">,</span> <span class="n">clm_file_h</span><span class="p">,</span> <span class="n">cfts_to_include</span><span class="p">,</span> <span class="n">crops_to_include</span><span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done.&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Importing took </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importing ctsm53019_f09_BNF_hist...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="yield-time-series">
+<h2>3. Yield time series<a class="headerlink" href="#yield-time-series" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+
+<span class="c1"># ↓ Incorrectly assumes that all gridcells have the same area</span>
+<span class="n">gridcell_area</span> <span class="o">=</span> <span class="n">case_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cft_ds</span><span class="p">[</span><span class="s2">&quot;area&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e6</span>  <span class="c1"># *1e6 to convert km2 to m2</span>
+
+<span class="c1"># Get figure layout info</span>
+<span class="k">if</span> <span class="mi">5</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">crops_to_include</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">hspace</span> <span class="o">=</span> <span class="mf">0.25</span>
+    <span class="n">wspace</span> <span class="o">=</span> <span class="mf">0.35</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Specify figure layout for Ncrops==</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">crops_to_include</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="n">ncols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">crop</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">crops_to_include</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">case_list</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">case</span><span class="o">.</span><span class="n">cft_ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">cft</span><span class="o">=</span><span class="n">case</span><span class="o">.</span><span class="n">crop_list</span><span class="p">[</span><span class="n">crop</span><span class="p">]</span><span class="o">.</span><span class="n">pft_nums</span><span class="p">)</span>
+
+        <span class="n">cft_area</span> <span class="o">=</span> <span class="n">gridcell_area</span> <span class="o">*</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;pfts1d_wtgcell&quot;</span><span class="p">]</span>
+        <span class="n">cft_prod</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;GRAINC_TO_FOOD_ANN&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">cft_area</span>
+        <span class="n">crop_prod_ts</span> <span class="o">=</span> <span class="n">cft_prod</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cft&quot;</span><span class="p">,</span> <span class="s2">&quot;pft&quot;</span><span class="p">])</span>
+        <span class="n">crop_area_ts</span> <span class="o">=</span> <span class="n">cft_area</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cft&quot;</span><span class="p">,</span> <span class="s2">&quot;pft&quot;</span><span class="p">])</span>
+        <span class="n">crop_yield_ts</span> <span class="o">=</span> <span class="n">crop_prod_ts</span> <span class="o">/</span> <span class="n">crop_area_ts</span>
+
+        <span class="c1"># Plot data</span>
+        <span class="n">crop_yield_ts</span> <span class="o">*=</span> <span class="mf">1e-6</span> <span class="o">*</span> <span class="mf">1e4</span>  <span class="c1"># Convert gC/m2 to tC/ha</span>
+        <span class="n">crop_yield_ts</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Yield&quot;</span>
+        <span class="n">crop_yield_ts</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;tC / ha&quot;</span>
+        <span class="n">crop_yield_ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+    <span class="c1"># Finish plot</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">crop</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="n">wspace</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="n">hspace</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time series plots took </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/648dcd0af05f30eedab6440e1dfc23b1791c74b9c7a28c8c26d7713665a274c1.png" src="../_images/648dcd0af05f30eedab6440e1dfc23b1791c74b9c7a28c8c26d7713665a274c1.png" />
+</div>
+</div>
+</section>
+<section id="yield-maps">
+<h2>4. Yield maps<a class="headerlink" href="#yield-maps" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">utils</span><span class="p">)</span>
+
+<span class="c1"># Get figure layout info</span>
+<span class="k">if</span> <span class="mi">5</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">crops_to_include</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="n">nrows</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="mi">15</span>
+    <span class="n">hspace</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">wspace</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Specify figure layout for Ncrops==</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">crops_to_include</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+    <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">,</span>
+    <span class="n">ncols</span><span class="o">=</span><span class="n">ncols</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span>
+    <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()},</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+    <span class="n">start_all</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">crop</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">crops_to_include</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">crop</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">case_list</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">case</span><span class="o">.</span><span class="n">cft_ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">cft</span><span class="o">=</span><span class="n">case</span><span class="o">.</span><span class="n">crop_list</span><span class="p">[</span><span class="n">crop</span><span class="p">]</span><span class="o">.</span><span class="n">pft_nums</span><span class="p">)</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">([</span><span class="s2">&quot;date_written&quot;</span><span class="p">,</span> <span class="s2">&quot;time_written&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;getting mean across time&quot;</span><span class="p">)</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;getting CFT-weighted mean&quot;</span><span class="p">)</span>
+        <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;wtd_yield_across_cfts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;GRAINC_TO_FOOD_ANN&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;pfts1d_wtgcell&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;cft&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;gridding yields&quot;</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">grid_one_variable</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="s2">&quot;wtd_yield_across_cfts&quot;</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">lon_pm2idl</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+        <span class="c1"># Cut off Antarctica</span>
+        <span class="n">antarctica_border</span> <span class="o">=</span> <span class="o">-</span><span class="mi">60</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="n">antarctica_border</span><span class="p">))</span><span class="o">.</span><span class="n">max</span><span class="p">()):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">antarctica_border</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
+
+        <span class="c1"># Plot data</span>
+        <span class="n">result</span> <span class="o">*=</span> <span class="mf">1e-6</span> <span class="o">*</span> <span class="mf">1e4</span>  <span class="c1"># Convert gC/m2 to tC/ha</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Yield&quot;</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;tC / ha&quot;</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;plotting&quot;</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+            <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+            <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+            <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;bottom&quot;</span><span class="p">,</span> <span class="s2">&quot;pad&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+        <span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">crop</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">crop</span><span class="si">}</span><span class="s2"> took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+    <span class="n">end_all</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maps took </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">end_all</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start_all</span><span class="p">)</span><span class="si">}</span><span class="s2"> s.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/d637e5cda502200ed54f2a705ec0c2b69917e87a2663edd75cf2ba20f66e24c0.png" src="../_images/d637e5cda502200ed54f2a705ec0c2b69917e87a2663edd75cf2ba20f66e24c0.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "cupid-analysis"
+        },
+        kernelOptions: {
+            name: "cupid-analysis",
+            path: "./lnd"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'cupid-analysis'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../infrastructure/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Index homepage!</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings">1. Settings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-modifiable-in-config-yml">1.1 Parameters modifiable in config.yml</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-settings">1.2 Other settings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-case-data">2. Import case data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-classes-etc">2.1 Set up classes etc.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-cases">2.2 Import cases</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-time-series">3. Yield time series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-maps">4. Yield maps</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By none
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
